@@ -1,9 +1,9 @@
 ![](https://github.com/writeonlycode/parallactic-gallery/blob/main/screenshots/parallactic-gallery-thumbnail.png?raw=true)
 
-Elit facilis debitis reiciendis consequuntur et. Repellat ullam quae molestias
-minima accusantium cupiditate Voluptates error voluptates officiis nihil
-eligendi ipsum, expedita. Odit sunt nulla itaque exercitationem quia voluptatum
-doloribus nemo
+Parallactic Gallery is a minimalist web application designed for users to
+anonymously upload and explore images. It offers a straightforward and
+intuitive platform for sharing visual content without the need for user
+accounts or complicated interfaces.
 
 ## Getting Started
 
