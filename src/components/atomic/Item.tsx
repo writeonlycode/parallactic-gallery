@@ -39,6 +39,8 @@ export default function Item({ ...props }: ItemProps) {
           <motion.div style={{ y, scale: 1.5 }} className="animate-position relative h-full w-full duration-500">
             <Image
               src={publicUrl}
+              placeholder="blur"
+              blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt=""
               width={640}
               height={640}
