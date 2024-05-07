@@ -3,6 +3,8 @@
 import { supabase } from "@/lib/supabase";
 import { revalidatePath } from "next/cache";
 
+export const runtime = "nodejs";
+
 export async function imagesUpload(previousState: any, formData: FormData) {
   const response = await supabase.storage
     .from("images")

@@ -2,8 +2,9 @@ import Item from "@/components/atomic/Item";
 import { supabase } from "@/lib/supabase";
 import { cookies } from "next/headers";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
-  cookies();
   const { data, error } = await supabase.storage.from("images").list();
 
   const leftColumn = data?.filter((_item, index) => index % 2 === 0);
