@@ -18,22 +18,22 @@ export default async function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-[1.5rem]">
       <section className="mx-auto grid w-full gap-[1.5rem] md:grid-cols-2 xl:grid-cols-3">
         <div className="flex flex-col gap-[2.5rem] md:hidden">
-          {data?.map((image, index) => <Item key={index} {...image} />)}
+          {data?.map((image, index) => <Item key={image.id} {...image} />)}
         </div>
         <div className="hidden flex-col gap-[2.5rem] md:flex xl:hidden">
-          {leftColumn?.map((image, index) => <Item key={index} {...image} />)}
+          {leftColumn?.map((image, index) => <Item key={image.id} {...image} />)}
         </div>
         <div className="hidden flex-col gap-[2.5rem] md:flex xl:hidden">
-          {rightColumn?.map((image, index) => <Item key={index} {...image} />)}
+          {rightColumn?.map((image, index) => <Item key={image.id} {...image} />)}
         </div>
         <div className="hidden flex-col gap-[2.5rem] xl:flex">
-          {firstColumn?.map((image, index) => <Item key={index} {...image} />)}
+          {firstColumn?.map((image, index) => <Item key={image.id} {...image} />)}
         </div>
         <div className="hidden flex-col gap-[2.5rem] xl:flex">
-          {secondColumn?.map((image, index) => <Item key={index} {...image} />)}
+          {secondColumn?.map((image, index) => <Item key={image.id} {...image} />)}
         </div>
         <div className="hidden flex-col gap-[2.5rem] xl:flex">
-          {thirdColumn?.map((image, index) => <Item key={index} {...image} />)}
+          {thirdColumn?.map((image, index) => <Item key={image.id} {...image} />)}
         </div>
       </section>
     </main>
