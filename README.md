@@ -52,7 +52,8 @@ NEXT_PUBLIC_SUPABASE_URL=<API URL>
 NEXT_PUBLIC_SUPABASE_KEY=<anon key>
 ```
 
-6. Finally, to run the development server and view the project locally, use the
+
+7. Finally, to run the development server and view the project locally, use the
    following command:
 
 ```
@@ -67,7 +68,30 @@ in your web browser to view the website.
 To deploy Parallactic Gallery, you can use any hosting provider that supports
 Next.JS, and you also need a Supabase project. To link Parallactic Gallery to
 your remote Supabase project, you just have to configure the environment
-variables with the values of your remote Supabase instance.
+variables with the values of your remote Supabase instance and update Next.JS
+`next.config.mjs` configuration file to allow access to remote images from your
+Supabase storage:
+
+```
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "<supabase-api-url-without-protocol>",
+      },
+      {
+        protocol: "http",
+        hostname: "127.0.0.1",
+        port: "54321",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+```
 
 
 ## Built With
