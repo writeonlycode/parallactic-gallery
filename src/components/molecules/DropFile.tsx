@@ -21,6 +21,7 @@ export default function DropFile({ ...props }: DropFileProps) {
 
       try {
         const response = await imagesUpload(undefined, formData);
+        console.log("Response of imagesUpload: ", response)
 
         if (response?.data) {
           toast.update(toastId, {
