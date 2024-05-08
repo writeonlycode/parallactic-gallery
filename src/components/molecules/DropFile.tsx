@@ -20,9 +20,9 @@ export default function DropFile({ ...props }: DropFileProps) {
       const toastId = toast.loading("Uploading image...");
 
       try {
-        const { data, error }: { data: any; error: any } = await imagesUpload(undefined, formData);
+        const response = await imagesUpload(undefined, formData);
 
-        if (data) {
+        if (response?.data) {
           toast.update(toastId, {
             render: "Success!",
             type: "success",
@@ -31,7 +31,7 @@ export default function DropFile({ ...props }: DropFileProps) {
           });
         } else {
           toast.update(toastId, {
-            render: "Ops, something went wrong: " + error.message + ".",
+            render: "Ops, something went wrong: " + response?.error.message + ".",
             type: "error",
             isLoading: false,
             autoClose: 6000,
