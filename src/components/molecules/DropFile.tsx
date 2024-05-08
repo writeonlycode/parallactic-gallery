@@ -2,12 +2,15 @@
 
 import { imagesUpload } from "@/actions/images";
 import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 import { DragEventHandler } from "react";
 import { toast } from "react-toastify";
 
 interface DropFileProps {}
 
 export default function DropFile({ ...props }: DropFileProps) {
+  const router = useRouter();
+
   const onDropHandler: DragEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
     async function upload() {
@@ -25,6 +28,7 @@ export default function DropFile({ ...props }: DropFileProps) {
             isLoading: false,
             autoClose: 6000,
           });
+          router.refresh();
         } else {
           toast.update(toastId, {
             render: "Ops, something went wrong: " + response?.error.message + ".",
