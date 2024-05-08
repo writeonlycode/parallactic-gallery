@@ -1,6 +1,7 @@
 "use client";
 
 import { imagesUpload } from "@/actions/images";
+import { supabase } from "@/lib/supabase";
 import { DragEventHandler } from "react";
 import { toast } from "react-toastify";
 
@@ -10,18 +11,12 @@ export default function DropFile({ ...props }: DropFileProps) {
   const onDropHandler: DragEventHandler<HTMLDivElement> = (e) => {
     e.preventDefault();
     async function upload() {
-      const formData = new FormData();
-
-      if (e.dataTransfer) {
-        formData.append("path", e.dataTransfer.files[0].name);
-        formData.append("file", e.dataTransfer.files[0]);
-      }
-
       const toastId = toast.loading("Uploading image...");
 
       try {
-        const response = await imagesUpload(undefined, formData);
-        console.log("Response of imagesUpload: ", response)
+        const response = await supabase.storage
+          .from("images")
+          .upload(e.dataTransfer.files[0].name as string, e.dataTransfer.files[0] as File);
 
         if (response?.data) {
           toast.update(toastId, {
