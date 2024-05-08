@@ -1,7 +1,7 @@
 insert into
-  storage.buckets (id, name, public)
+  storage.buckets (id, name, public, allowed_mime_types)
 values
-  ('images', 'images', true);
+  ('images', 'images', true, '{image/*}');
 
 create policy "Enable select on images for everyone" on storage.objects for select
 using ((bucket_id = 'images'::text));
